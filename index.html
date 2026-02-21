@@ -56,8 +56,8 @@
             }
 
 			.element {
-				width: 120px;
-				height: 160px;
+				width: 320px;
+				height: 260px;
 				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
 				border: 1px solid rgba(127,255,255,0.25);
 				text-align: center;
@@ -118,58 +118,192 @@
 		<script src="./libs/three.min.js"></script>
 		<script src="./libs/tween.min.js"></script>
 		<script src="./libs/TrackballControls.js"></script>
+		<script src="./libs/OrbitControls.js"></script>
 		<script src="./libs/CSS3DRenderer.js"></script>
 
 		<div id="container"></div>
-		<div id="info">EL RULO ARMÓNICO DE SciFactor - por Bartosz K. </div>
+		<div id="info">PORTFOLIO PERSONAL de Saray Niembro</div>
 		<div id="menu">
-			<button id="cilindro">CILINDRO</button>
+<!--			<button id="cilindro">CILINDRO</button>
 			<button id="capas">3 CAPAS</button>
 			<button id="techo">TONNETZ TECHO</button>
 			<button id="matrix">MATRIX</button>
+			-->
 		</div>
         
         <div id="triangle"></div>
 
 		<script>
+var foto1 = document.createElement( 'img' );
+					foto1.src = "IMG_5841.jpeg" ;
+					foto1.className = 'element';
+					foto1.onclick = function () {
+					window.open("./IMG_5841.jpeg","window_name","location,height=1000,width=1000");
+					};	 
+var foto2 = document.createElement( 'img' );
+					foto2.src = "IMG_5842.jpeg" ;
+					foto2.className = 'element';
+					foto2.onclick = function () {
+					window.open("./IMG_5842.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto3 = document.createElement( 'img' );
+					foto3.src = "IMG_5843.jpeg" ;
+					foto3.className = 'element';
+					foto3.onclick = function () {
+					window.open("./IMG_5843.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto4 = document.createElement( 'img' );
+					foto4.src = "IMG_5844.jpeg" ;
+					foto4.className = 'element';
+					foto4.onclick = function () {
+					window.open("./IMG_5844.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto5 = document.createElement( 'img' );
+					foto5.src = "IMG_5848.jpeg" ;
+					foto5.className = 'element';
+					foto5.onclick = function () {
+					window.open("./IMG_5848.jpeg","window_name","location,height=1000,width=1000");
+					};				
+var foto6 = document.createElement( 'img' );
+					foto6.src = "IMG_5850.jpeg" ;
+					foto6.className = 'element';
+					foto6.onclick = function () {
+					window.open("./IMG_5850.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto7 = document.createElement( 'img' );
+					foto7.src = "IMG_5853.jpeg" ;
+					foto7.className = 'element';
+					foto7.onclick = function () {
+					window.open("./IMG_5853.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto8 = document.createElement( 'img' );
+					foto8.src = "IMG_5854.jpeg" ;
+					foto8.className = 'element';
+					foto8.onclick = function () {
+					window.open("./IMG_5854.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto9 = document.createElement( 'img' );
+					foto9.src = "IMG_5855.jpeg" ;
+					foto9.className = 'element';
+					foto9.onclick = function () {
+					window.open("./IMG_5855.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto10 = document.createElement( 'img' );
+					foto10.src = "IMG_5856.jpeg" ;
+					foto10.className = 'element';
+					foto10.onclick = function () {
+					window.open("./IMG_5856.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto11 = document.createElement( 'img' );
+					foto11.src = "IMG_5857.jpeg" ;
+					foto11.className = 'element';
+					foto11.onclick = function () {
+					window.open("./IMG_5857.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto12 = document.createElement( 'img' );
+					foto12.src = "IMG_5858.jpeg" ;
+					foto12.className = 'element';
+					foto12.onclick = function () {
+					window.open("./IMG_5858.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto13 = document.createElement( 'img' );
+					foto13.src = "IMG_5859.jpeg" ;
+					foto13.className = 'element';
+					foto13.onclick = function () {
+					window.open("./IMG_5859.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto14 = document.createElement( 'img' );
+					foto14.src = "IMG_5860.jpeg" ;
+					foto14.className = 'element';
+					foto14.onclick = function () {
+					window.open("./IMG_5860.jpeg","window_name","location,height=1000,width=1000");
+					};	
+var foto15 = document.createElement( 'img' );
+					foto15.src = "IMG_5842.jpeg" ;
+					foto15.className = 'element';	
+var foto21 = document.createElement( 'img' );
+					foto21.src = "ActiveHours.png" ;
+					foto21.className = 'element';
+var foto22 = document.createElement( 'img' );
+					foto22.src = "IMG_5842.jpeg" ;
+					foto22.className = 'element';
+var foto23 = document.createElement( 'img' );
+					foto23.src = "BluetoothPairingSystemToastIcon.contrast-high.png" ;
+					foto23.className = 'element';
+var foto24 = document.createElement( 'img' );
+					foto24.src = "BluetoothPairingSystemToastIcon.png" ;
+					foto24.className = 'element';
+var foto25 = document.createElement( 'img' );
+					foto25.src = "FeatureToastBulldogImg.png" ;
+					foto25.className = 'element';				
+var foto26 = document.createElement( 'img' );
+					foto26.src = "ActiveHours.png" ;
+					foto26.className = 'element';
+var foto27 = document.createElement( 'img' );
+					foto27.src = "BluetoothPairingSystemToastIcon.contrast-black.png" ;
+					foto27.className = 'element';
+var foto28 = document.createElement( 'img' );
+					foto28.src = "BluetoothPairingSystemToastIcon.contrast-high.png" ;
+					foto28.className = 'element';
+var foto29 = document.createElement( 'img' );
+					foto29.src = "BluetoothPairingSystemToastIcon.png" ;
+					foto29.className = 'element';
+var foto210 = document.createElement( 'img' );
+					foto210.src = "FeatureToastBulldogImg.png" ;
+					foto210.className = 'element';
+var foto211 = document.createElement( 'img' );
+					foto211.src = "ActiveHours.png" ;
+					foto211.className = 'element';
+var foto212 = document.createElement( 'img' );
+					foto212.src = "BluetoothPairingSystemToastIcon.contrast-black.png" ;
+					foto212.className = 'element';
+var foto213 = document.createElement( 'img' );
+					foto213.src = "BluetoothPairingSystemToastIcon.contrast-high.png" ;
+					foto213.className = 'element';
+var foto214 = document.createElement( 'img' );
+					foto214.src = "BluetoothPairingSystemToastIcon.png" ;
+					foto214.className = 'element';
+var foto215 = document.createElement( 'img' );
+					foto215.src = "FeatureToastBulldogImg.png" ;
+					foto215.className = 'element';																																
 
 			var table = [
-				"SOL", "Dominante", "1.00794", 1,1,
-				"MI", "Ton. Secundaria", "4.002602", 18, 1,
-				"REb\nDO#", "Lithium", "6.941", 1, 2,
-				"SIb\nLA#", "Beryllium", "9.012182", 2, 2,
-				"SOL", "Dominante", "10.811", 13, 2,
+				foto1, "Dominante", "1.00794", 1,1,
+				foto2, "Ton. Secundaria", "4.002602", 18, 1,
+				foto3, "Lithium", "6.941", 1, 2,
+				foto4, "Beryllium", "9.012182", 2, 2,
+				foto5, "Dominante", "10.811", 13, 2,
 				
-                "RE", "Carbon", "12.0107", 14, 2,
-				"SI", "Nitrogen", "14.0067", 15, 2,
-				"LAb\nSOL#", "Oxygen", "15.9994", 16, 2,
-				"FA", "Fluorine", "18.9984032", 17, 2,
-				"RE", "Neon", "20.1797", 18, 2,
+                foto10, "Carbon", "12.0107", 14, 2,
+				foto9, "Nitrogen", "14.0067", 15, 2,
+				foto8, "Oxygen", "15.9994", 16, 2,
+				foto7, "Fluorine", "18.9984032", 17, 2,
+				foto6, "Neon", "20.1797", 18, 2,
 				
-                "LA", "Sodium", "22.98976...", 1, 3,
-				"SOLb\nFA#", "Magnesium", "24.305", 2, 3,
-				"MIb\nRE#", "Aluminium", "26.9815386", 13, 3,
-				"DO", "Silicon", "28.0855", 14, 3,
-				"LA", "Phosphorus", "30.973762", 15, 3,
+                foto13, "Sodium", "22.98976...", 1, 3,
+				foto12, "Magnesium", "24.305", 2, 3,
+				foto15, "Aluminium", "26.9815386", 13, 3,
+				foto11, "Silicon", "28.0855", 14, 3,
+				foto14, "Phosphorus", "30.973762", 15, 3,
 				
-                "MI", "Sulfur", "32.065", 16, 3,
-				"REb\nDO#", "Chlorine", "35.453", 17, 3,
-				"SIb\nLA#", "Beryllium", "9.012182", 2, 2,
-				"SOL", "Boron", "10.811", 13, 2,
-				"MI", "Calcium", "40.078", 2, 4,
+				foto21, "Dominante", "1.00794", 1,1,
+				foto22, "Ton. Secundaria", "4.002602", 18, 1,
+				foto23, "Lithium", "6.941", 1, 2,
+				foto24, "Beryllium", "9.012182", 2, 2,
+				foto25, "Dominante", "10.811", 13, 2,
 				
-                "SI", "Scandium", "44.955912", 3, 4,
-				"LAb\nSOL#", "Oxygen", "15.9994", 16, 2,
-				"FA", "Fluorine", "18.9984032", 17, 2,
-				"RE", "Neon", "20.1797", 18, 2,
-				"SI", "Manganese", "54.938045", 7, 4,
-                
-				"SOLb\nFA#", "Iron", "55.845", 8, 4,
-				"MIb\nRE#", "Aluminium", "26.9815386", 13, 3,
-				"DO", "Silicon", "28.0855", 14, 3,
-				"LA", "Phosphorus", "30.973762", 15, 3,
-				"SOLb\nFA#", "Iron", "55.845", 8, 4,
-                
+                foto210, "Carbon", "12.0107", 14, 2,
+				foto29, "Nitrogen", "14.0067", 15, 2,
+				foto28, "Oxygen", "15.9994", 16, 2,
+				foto27, "Fluorine", "18.9984032", 17, 2,
+				foto26, "Neon", "20.1797", 18, 2,
+				
+                foto213, "Sodium", "22.98976...", 1, 3,
+				foto212, "Magnesium", "24.305", 2, 3,
+				foto215, "Aluminium", "26.9815386", 13, 3,
+				foto211, "Silicon", "28.0855", 14, 3,
+				foto214, "Phosphorus", "30.973762", 15, 3,
+
 				"REb\nDO#", "Chlorine", "35.453", 17, 3,
 				"SIb\nLA#", "Beryllium", "9.012182", 2, 2,
 				"SOL", "Boron", "10.811", 13, 2,
@@ -369,109 +503,24 @@
 			function init() {
 
 				camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.x = -3000;
-                camera.position.y = 1000;
-                camera.position.z = -3000;
+				camera.position.x = -1500;
+                camera.position.y = 300;
+                camera.position.z = -2700;
 
 				scene = new THREE.Scene();
                 
-                var geometryp = [];
-                    //geometryp.push(new THREE.Vector3(0, 100, 0));
                 
-                	geometryp.push(new THREE.Vector3(-1100*0.85, 850, -1100*0.4));
-                	geometryp.push(new THREE.Vector3(-1700*0.5, 450, -1700*0.7));
-                	geometryp.push(new THREE.Vector3(-1700*0.85, 450, -1700*0.4));
-                
-                	geometryp.push(new THREE.Vector3(-1100*0.85, 450, -1100*0.4));
-                	geometryp.push(new THREE.Vector3(-1700*0.5, 100, -1700*0.7));
-                	geometryp.push(new THREE.Vector3(-1700*0.85, 100, -1700*0.4));
-                	  
-                	geometryp.push(new THREE.Vector3(-2300*0.5, 100, -2300*0.7));
-                    geometryp.push(new THREE.Vector3(-2300*0.5, -600, -2300*0.7));
-                    geometryp.push(new THREE.Vector3(-2300*0.85, -300, -2300*0.4));
-
-                var geometry = new THREE.BufferGeometry().setFromPoints( geometryp );       
-                var line = new THREE.Line(
-                      geometry,
-                      new THREE.LineBasicMaterial({ color: 0x00ff00 })
-                    );
-                    scene.add(line);
-                
-                var element2 = document.createElement( 'div' );
-					element2.className = 'triangle';
-                var object2 = new THREE.CSS3DObject( element2 );
-					object2.position.x = -1300*0.6;
-					object2.position.y = 550;
-					object2.position.z = -1300*0.6;
-                var vector = new THREE.Vector3();
-                	vector.x = object2.position.x * 1.7;
-                    vector.y = object2.position.y * 3;
-                    vector.z = object2.position.z * 2;
-                    object2.lookAt( vector );                   
-					
-					scene.add( object2 );
-                
-                 var element3 = document.createElement( 'div' );
-					element3.className = 'triangle';
-                var object3 = new THREE.CSS3DObject( element3 );
-					object3.position.x = -1300*0.6;
-					object3.position.y = 250;
-					object3.position.z = -1300*0.6;
-                var vector = new THREE.Vector3();
-                	vector.x = object3.position.x * 1.7;
-                    vector.y = object3.position.y * 5;
-                    vector.z = object3.position.z * 2;
-                    object3.lookAt( vector );                   
-					
-					scene.add( object3 );
-                
-                var element4 = document.createElement( 'div' );
-					element4.className = 'triangle-right';
-                var object4 = new THREE.CSS3DObject( element4 );
-					object4.position.x = -2050*0.6;
-					object4.position.y = -200;
-					object4.position.z = -2050*0.6;
-                var vector = new THREE.Vector3();
-                	vector.x = object4.position.x * 1.8;
-                    vector.y = object4.position.y;
-                    vector.z = object4.position.z * 2;
-                    object4.lookAt( vector );                   
-					
-					scene.add( object4 );
 
                 
-               for ( var k = 0; k < table.length; k += 5 ) {
+               for ( var k = 0; k < 146; k += 5 ) {
 
-					var element = document.createElement( 'div' );
-					element.className = 'element';
-					element.style.backgroundColor = 'rgba(0,127,127,' + ( Math.random() * 0.5 + 0.25 ) + ')';
-
-					var number = document.createElement( 'div' );
-					number.className = 'number';
-					number.textContent = (k/5) + 1;
-					element.appendChild( number );
-
-					var symbol = document.createElement( 'div' );
-					symbol.className = 'symbol';
-					symbol.textContent = table[ k ];
-					element.appendChild( symbol );
-
-					var details = document.createElement( 'div' );
-					details.className = 'details';
-					details.innerHTML = table[ k + 1 ];
-					element.appendChild( details );
-
-					var object = new THREE.CSS3DObject( element );
-					object.position.x = Math.random() * 4000 - 2000;
-					object.position.y = Math.random() * 4000 - 2000;
-					object.position.z = Math.random() * 4000 - 2000;
-                   
-					
+									
+					var object = new THREE.CSS3DObject( table [ k ] );
+										
                    scene.add( object );
-                   
-                    
-
+                                  
 					objects.push( object );
+					
 
 			// CILINDRO
                     
@@ -618,39 +667,40 @@
 				//
 
 				controls = new THREE.TrackballControls( camera, renderer.domElement );
-				controls.rotateSpeed = 0.5;
+				controls.rotateSpeed = 1.5;
 				controls.minDistance = 500;
 				controls.maxDistance = 6000;
 				controls.addEventListener( 'change', render );
+//				controls.noRotate = true;
 
-				var button = document.getElementById( 'cilindro' );
-				button.addEventListener( 'click', function ( event ) {
+//				var button = document.getElementById( 'cilindro' );
+//				button.addEventListener( 'click', function ( event ) {
 
-					transform( targets.table, 2000 );
-                    camera.position.y = 0;
-                    camera.position.z = -3000;
+//					transform( targets.table, 2000 );
+ //                   camera.position.y = 0;
+//                    camera.position.z = -3000;
 
-				}, false );
+//				}, false );
 
-				var button = document.getElementById( 'capas' );
-				button.addEventListener( 'click', function ( event ) {
+//				var button = document.getElementById( 'capas' );
+//				button.addEventListener( 'click', function ( event ) {
 
-					transform( targets.sphere, 2000 );                    
-                    camera.position.z = -5000;
+//					transform( targets.sphere, 2000 );                    
+//                    camera.position.z = -5000;
 
-				}, false );
+//				}, false );
 
-				var button = document.getElementById( 'techo' );
-				button.addEventListener( 'click', function ( event ) {
+//				var button = document.getElementById( 'techo' );
+//				button.addEventListener( 'click', function ( event ) {
 
-					transform( targets.helix, 2000 );
-                    camera.position.y = 3000;
-                    camera.position.z = 0;
+//					transform( targets.helix, 2000 );
+//                    camera.position.y = 3000;
+//                    camera.position.z = 0;
 
-				}, false );
+//				}, false );
 
-				var button = document.getElementById( 'matrix' );
-				button.addEventListener( 'click', function ( event ) {
+//				var button = document.getElementById( 'matrix' );
+//				button.addEventListener( 'click', function ( event ) {
                     
                     /*var element = document.createElement( 'div' );
 					element.className = 'element';
@@ -664,9 +714,9 @@
 
 					objects.push( object );*/
 
-					transform( targets.grid, 2000 );
+//					transform( targets.grid, 2000 );
 
-				}, false );
+//				}, false );
 
 				transform( targets.table, 2000 );
 
@@ -723,6 +773,8 @@
 				TWEEN.update();
 
 				controls.update();
+
+
 
 			}
 
