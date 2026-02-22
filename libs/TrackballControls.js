@@ -175,6 +175,14 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 				axis.crossVectors( moveDirection, _eye ).normalize();
 
+				if (Math.abs(axis.y) > Math.abs(axis.x) && Math.abs(axis.y) > Math.abs(axis.z)) {
+    axis.set(0, axis.y > 0 ? 1 : -1, 0); // Force to Y
+} else {
+    // Optionally: if moving mostly horizontally, lock to Y anyway
+    axis.set(0, 1, 0); 
+}
+axis.normalize();
+
 				angle *= _this.rotateSpeed;
 				quaternion.setFromAxisAngle( axis, angle );
 
@@ -183,6 +191,8 @@ THREE.TrackballControls = function ( object, domElement ) {
 
 				_lastAxis.copy( axis );
 				_lastAngle = angle;
+
+				
 
 			} else if ( ! _this.staticMoving && _lastAngle ) {
 
