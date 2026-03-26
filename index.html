@@ -30,6 +30,7 @@
 				font-weight: bold;
 				text-align: center;
 				z-index: 1;
+				overflow: hidden;
 			}
 
 			#menu {
@@ -54,7 +55,7 @@
               border-left: 800px solid rgb(255, 255, 100);
               border-bottom: 300px solid transparent;
             }
-
+			
 			.element {
 				width: 288px;
 				height: 234px;
@@ -68,7 +69,7 @@
 				width: auto;
 				height: auto;
 				box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
-				border: 150px solid rgba(255, 255, 255, 1);
+				//border: 150px solid rgba(255, 255, 255, 1);
 				cursor: default;
 			}
 
@@ -144,18 +145,24 @@
 
 		<script>
 
+
+
 var foto1 = document.createElement( 'img' );
-					foto1.src = "IMG_5840.jpeg" ;
+					foto1.src = "./Rulo-1/1_Prebarco_primario_1.jpg" ;
 					foto1.className = 'element';
 					foto1.onclick = function () {
 					if (foto1.className === "element") {
 						foto1.className = "element2";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						objects[0].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*4;
+						objects[0].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[0].position.y =  ( 2 * 280 ) - 450;
-                        objects[0].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*4;
+                        objects[0].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
+						objects[21].position.x = 900 * Math.sin( 0.5 * 0.524 + Math.PI )*4;
+                        objects[21].position.y =  ( 2 * 280 ) - 450;
+                        objects[21].position.z = 900 * Math.cos( 0.5 * 0.524 + Math.PI )*4;
+						objects[21].lookAt( objects[7].position.x*50, objects[7].position.y, objects[7].position.z*50 );
 					} else {
 						foto1.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
@@ -168,17 +175,17 @@ var foto1 = document.createElement( 'img' );
 					};
 				 
 var foto2 = document.createElement( 'img' );
-					foto2.src = "IMG_5841.jpeg" ;
+					foto2.src = "./Rulo-1/2_Fiery_Color_00417.jpg" ;
 					foto2.className = 'element';
 					foto2.onclick = function () {
 					if (foto2.className === "element") {
 						foto2.className = "element2";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						objects[1].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*4;
+						objects[1].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[1].position.y =  ( 2 * 280 ) - 450;
-                        objects[1].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*4;
+                        objects[1].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
 					} else {
 						foto2.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
@@ -191,17 +198,17 @@ var foto2 = document.createElement( 'img' );
 					};
 
 var foto3 = document.createElement( 'img' );
-					foto3.src = "IMG_5842.jpeg" ;
+					foto3.src = "./Rulo-1/3_PrimeroBN_2_resized.jpg" ;
 					foto3.className = 'element';
 					foto3.onclick = function () {
 					if (foto3.className === "element") {
 						foto3.className = "element2";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						objects[2].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*4;
+						objects[2].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[2].position.y =  ( 2 * 280 ) - 450;
-                        objects[2].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*4;
+                        objects[2].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
 					} else {
 						foto3.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
@@ -213,17 +220,17 @@ var foto3 = document.createElement( 'img' );
 					};				
 					};
 var foto4 = document.createElement( 'img' );
-					foto4.src = "IMG_5843.jpeg" ;
+					foto4.src = "./Rulo-1/4_PrimeroBN_1_resized.jpg" ;
 					foto4.className = 'element';
 					foto4.onclick = function () {
 					if (foto4.className === "element") {
 						foto4.className = "element2";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						objects[3].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*4;
+						objects[3].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[3].position.y =  ( 2 * 280 ) - 450;
-                        objects[3].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*4;
+                        objects[3].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
 					} else {
 						foto4.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
@@ -235,17 +242,17 @@ var foto4 = document.createElement( 'img' );
 					};				
 					};
 var foto5 = document.createElement( 'img' );
-					foto5.src = "IMG_5844.jpeg" ;
+					foto5.src = "./Rulo-1/5_PrimeroBN_3_resized.jpg" ;
 					foto5.className = 'element';
 					foto5.onclick = function () {
 					if (foto5.className === "element") {
 						foto5.className = "element2";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						objects[4].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*4;
+						objects[4].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[4].position.y =  ( 2 * 280 ) - 450;
-                        objects[4].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*4;
+                        objects[4].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
 					} else {
 						foto5.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
@@ -257,17 +264,17 @@ var foto5 = document.createElement( 'img' );
 					};				
 					};		
 var foto6 = document.createElement( 'img' );
-					foto6.src = "IMG_5846.jpeg" ;
+					foto6.src = "./Rulo-1/6_Prebarco_primario_2.jpg" ;
 					foto6.className = 'element';
 					foto6.onclick = function () {
 					if (foto6.className === "element") {
 						foto6.className = "element2";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*10;
-						objects[5].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+						objects[5].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*6;
                         objects[5].position.y =  ( 2 * 280 ) - 450;
-                        objects[5].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+                        objects[5].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*6;
 					} else {
 						foto6.className = "element";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*3.5;
@@ -279,17 +286,17 @@ var foto6 = document.createElement( 'img' );
 					};				
 					};	
 var foto7 = document.createElement( 'img' );
-					foto7.src = "IMG_5847.jpeg" ;
+					foto7.src = "./Rulo-1/7_Fira_RG.jpg" ;
 					foto7.className = 'element';
 					foto7.onclick = function () {
 					if (foto7.className === "element") {
 						foto7.className = "element2";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*10;
-						objects[6].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+						objects[6].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*6;
                         objects[6].position.y =  ( 2 * 280 ) - 450;
-                        objects[6].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+                        objects[6].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*6;
 					} else {
 						foto7.className = "element";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*3.5;
@@ -301,17 +308,17 @@ var foto7 = document.createElement( 'img' );
 					};				
 					};	
 var foto8 = document.createElement( 'img' );
-					foto8.src = "IMG_5848.jpeg" ;
+					foto8.src = "./Rulo-1/8_Barco_4.jpg" ;
 					foto8.className = 'element';
 					foto8.onclick = function () {
 					if (foto8.className === "element") {
 						foto8.className = "element2";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*10;
-						objects[7].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+						objects[7].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*6;
                         objects[7].position.y =  ( 2 * 280 ) - 450;
-                        objects[7].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+                        objects[7].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*6;
 					} else {
 						foto8.className = "element";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*3.5;
@@ -323,17 +330,17 @@ var foto8 = document.createElement( 'img' );
 					};				
 					};	
 var foto9 = document.createElement( 'img' );
-					foto9.src = "IMG_5849.jpeg" ;
+					foto9.src = "./Rulo-1/9_Barco_5.jpg" ;
 					foto9.className = 'element';
 					foto9.onclick = function () {
 					if (foto9.className === "element") {
 						foto9.className = "element2";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*10;
-						objects[8].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+						objects[8].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*6;
                         objects[8].position.y =  ( 2 * 280 ) - 450;
-                        objects[8].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+                        objects[8].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*6;
 					} else {
 						foto9.className = "element";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*3.5;
@@ -345,17 +352,17 @@ var foto9 = document.createElement( 'img' );
 					};				
 					};	
 var foto10 = document.createElement( 'img' );
-					foto10.src = "IMG_5850.jpeg" ;
+					foto10.src = "./Rulo-1/10_Barco_3.jpg" ;
 					foto10.className = 'element';
 					foto10.onclick = function () {
 					if (foto10.className === "element") {
 						foto10.className = "element2";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*10;
-						objects[9].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+						objects[9].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*6;
                         objects[9].position.y =  ( 2 * 280 ) - 450;
-                        objects[9].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+                        objects[9].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*6;
 					} else {
 						foto10.className = "element";
 						camera.position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*3.5;
@@ -367,17 +374,17 @@ var foto10 = document.createElement( 'img' );
 					};				
 					};	
 var foto11 = document.createElement( 'img' );
-					foto11.src = "IMG_5851.jpeg" ;
+					foto11.src = "./Rulo-1/11_Prebarco_primario_3.jpg" ;
 					foto11.className = 'element';
 					foto11.onclick = function () {
 					if (foto11.className === "element") {
 						foto11.className = "element2";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*10;
-						objects[10].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+						objects[10].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*6;
                         objects[10].position.y =  ( 2 * 280 ) - 450;
-                        objects[10].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+                        objects[10].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*6;
 					} else {
 						foto11.className = "element";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*3.5;
@@ -389,17 +396,17 @@ var foto11 = document.createElement( 'img' );
 					};				
 					};	
 var foto12 = document.createElement( 'img' );
-					foto12.src = "IMG_5852.jpeg" ;
+					foto12.src = "./Rulo-1/12_Bicolo_1.jpg" ;
 					foto12.className = 'element';
 					foto12.onclick = function () {
 					if (foto12.className === "element") {
 						foto12.className = "element2";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*10;
-						objects[11].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+						objects[11].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*6;
                         objects[11].position.y =  ( 2 * 280 ) - 450;
-                        objects[11].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+                        objects[11].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*6;
 					} else {
 						foto12.className = "element";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*3.5;
@@ -411,17 +418,17 @@ var foto12 = document.createElement( 'img' );
 					};				
 					};	
 var foto13 = document.createElement( 'img' );
-					foto13.src = "IMG_5853.jpeg" ;
+					foto13.src = "./Rulo-1/13_Barco_12.jpg" ;
 					foto13.className = 'element';
 					foto13.onclick = function () {
 					if (foto13.className === "element") {
 						foto13.className = "element2";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*10;
-						objects[12].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+						objects[12].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*6;
                         objects[12].position.y =  ( 2 * 280 ) - 450;
-                        objects[12].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+                        objects[12].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*6;
 					} else {
 						foto13.className = "element";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*3.5;
@@ -433,17 +440,17 @@ var foto13 = document.createElement( 'img' );
 					};				
 					};	
 var foto14 = document.createElement( 'img' );
-					foto14.src = "IMG_5854.jpeg" ;
+					foto14.src = "./Rulo-1/14_Barco_11.jpg" ;
 					foto14.className = 'element';
 					foto14.onclick = function () {
 					if (foto14.className === "element") {
 						foto14.className = "element2";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*10;
-						objects[13].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+						objects[13].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*6;
                         objects[13].position.y =  ( 2 * 280 ) - 450;
-                        objects[13].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+                        objects[13].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*6;
 					} else {
 						foto14.className = "element";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*3.5;
@@ -455,17 +462,17 @@ var foto14 = document.createElement( 'img' );
 					};				
 					};		
 var foto15 = document.createElement( 'img' );
-					foto15.src = "IMG_5855.jpeg" ;
+					foto15.src = "./Rulo-1/15_Barco_6.jpg" ;
 					foto15.className = 'element';
 					foto15.onclick = function () {
 					if (foto15.className === "element") {
 						foto15.className = "element2";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*10;
-						objects[14].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+						objects[14].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*6;
                         objects[14].position.y =  ( 2 * 280 ) - 450;
-                        objects[14].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+                        objects[14].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*6;
 					} else {
 						foto15.className = "element";
 						camera.position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*3.5;
@@ -476,20 +483,20 @@ var foto15 = document.createElement( 'img' );
                         objects[14].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
 					};				
 					};	
-var foto21 = document.createElement( 'img' );
-					foto21.src = "IMG_5856.jpeg" ;
-					foto21.className = 'element';
-					foto21.onclick = function () {
-					if (foto21.className === "element") {
-						foto21.className = "element2";
+var foto16 = document.createElement( 'img' );
+					foto16.src = "./Rulo-1/16_Japo_1.jpg" ;
+					foto16.className = 'element';
+					foto16.onclick = function () {
+					if (foto16.className === "element") {
+						foto16.className = "element2";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*10;
-						objects[15].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*4;
+						objects[15].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*6;
                         objects[15].position.y =  ( 2 * 280 ) - 450;
-                        objects[15].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*4;
+                        objects[15].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*6;
 					} else {
-						foto21.className = "element";
+						foto16.className = "element";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*3.5;
@@ -498,20 +505,20 @@ var foto21 = document.createElement( 'img' );
                         objects[15].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 					};				
 					};			
-var foto22 = document.createElement( 'img' );
-					foto22.src = "IMG_5857.jpeg" ;
-					foto22.className = 'element';
-					foto22.onclick = function () {
-					if (foto22.className === "element") {
-						foto22.className = "element2";
+var foto17 = document.createElement( 'img' );
+					foto17.src = "./Rulo-1/17_Bicolo_2.jpg" ;
+					foto17.className = 'element';
+					foto17.onclick = function () {
+					if (foto17.className === "element") {
+						foto17.className = "element2";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*10;
-						objects[16].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*4;
+						objects[16].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*6;
                         objects[16].position.y =  ( 2 * 280 ) - 450;
-                        objects[16].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*4;
+                        objects[16].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*6;
 					} else {
-						foto22.className = "element";
+						foto17.className = "element";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*3.5;
@@ -520,20 +527,20 @@ var foto22 = document.createElement( 'img' );
                         objects[16].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 					};				
 					};		
-var foto23 = document.createElement( 'img' );
-					foto23.src = "IMG_5858.jpeg" ;
-					foto23.className = 'element';
-					foto23.onclick = function () {
-					if (foto23.className === "element") {
-						foto23.className = "element2";
+var foto18 = document.createElement( 'img' );
+					foto18.src = "./Rulo-1/18_Barco_2.jpg" ;
+					foto18.className = 'element';
+					foto18.onclick = function () {
+					if (foto18.className === "element") {
+						foto18.className = "element2";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*10;
-						objects[17].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*4;
+						objects[17].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*6;
                         objects[17].position.y =  ( 2 * 280 ) - 450;
-                        objects[17].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*4;
+                        objects[17].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*6;
 					} else {
-						foto23.className = "element";
+						foto18.className = "element";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*3.5;
@@ -542,20 +549,20 @@ var foto23 = document.createElement( 'img' );
                         objects[17].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 					};				
 					};		
-var foto24 = document.createElement( 'img' );
-					foto24.src = "IMG_5859.jpeg" ;
-					foto24.className = 'element';
-					foto24.onclick = function () {
-					if (foto24.className === "element") {
-						foto24.className = "element2";
+var foto19 = document.createElement( 'img' );
+					foto19.src = "./Rulo-1/19_Barco_7.jpg" ;
+					foto19.className = 'element';
+					foto19.onclick = function () {
+					if (foto19.className === "element") {
+						foto19.className = "element2";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*10;
-						objects[18].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*4;
+						objects[18].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*6;
                         objects[18].position.y =  ( 2 * 280 ) - 450;
-                        objects[18].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*4;
+                        objects[18].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*6;
 					} else {
-						foto24.className = "element";
+						foto19.className = "element";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*3.5;
@@ -564,20 +571,20 @@ var foto24 = document.createElement( 'img' );
                         objects[18].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 					};				
 					};			
-var foto25 = document.createElement( 'img' );
-					foto25.src = "IMG_5860.jpeg" ;
-					foto25.className = 'element';
-					foto25.onclick = function () {
-					if (foto25.className === "element") {
-						foto25.className = "element2";
+var foto20 = document.createElement( 'img' );
+					foto20.src = "./Rulo-1/20_Barco_1.jpg" ;
+					foto20.className = 'element';
+					foto20.onclick = function () {
+					if (foto20.className === "element") {
+						foto20.className = "element2";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*10;
-						objects[19].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*4;
+						objects[19].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*6;
                         objects[19].position.y =  ( 2 * 280 ) - 450;
-                        objects[19].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*4;
+                        objects[19].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*6;
 					} else {
-						foto25.className = "element";
+						foto20.className = "element";
 						camera.position.x = 900 * Math.sin( 3 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 3 * 0.524 + Math.PI )*3.5;
@@ -585,21 +592,87 @@ var foto25 = document.createElement( 'img' );
                         objects[19].position.y =  ( 4 * 280 ) - 450;
                         objects[19].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 					};				
-					};			
-var foto26 = document.createElement( 'img' );
-					foto26.src = "IMG_5872.jpeg" ;
-					foto26.className = 'element';
-					foto26.onclick = function () {
-					if (foto26.className === "element") {
-						foto26.className = "element2";
+					};
+var foto21 = document.createElement( 'img' );
+					foto21.src = "./Rulo-1/21_Japo_2.jpg" ;
+					foto21.className = 'element';
+					foto21.onclick = function () {
+					if (foto21.className === "element") {
+						foto21.className = "element2";
 						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*10;
-						objects[23].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*4;
-                        objects[23].position.y =  ( 2 * 280 ) - 450;
-                        objects[23].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*4;
+						objects[20].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*6;
+                        objects[20].position.y =  ( 2 * 280 ) - 450;
+                        objects[20].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*6;
 					} else {
-						foto26.className = "element";
+						foto21.className = "element";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*3.5;
+						objects[20].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
+                        objects[20].position.y =  ( 0 * 280 ) - 450;
+                        objects[20].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+					};				
+					};	
+var foto22 = document.createElement( 'img' );
+					foto22.src = "./Rulo-1/22_PostPre_2.jpg" ;
+					foto22.className = 'element';
+					foto22.onclick = function () {
+					if (foto22.className === "element") {
+						foto22.className = "element2";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*10;
+						objects[21].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*6;
+                        objects[21].position.y =  ( 2 * 280 ) - 450;
+                        objects[21].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*6;
+					} else {
+						foto22.className = "element";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*3.5;
+						objects[21].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
+                        objects[21].position.y =  ( 1 * 280 ) - 450;
+                        objects[21].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+					};				
+					};	
+var foto23 = document.createElement( 'img' );
+					foto23.src = "./Rulo-1/23_PostPre_1.jpg" ;
+					foto23.className = 'element';
+					foto23.onclick = function () {
+					if (foto23.className === "element") {
+						foto23.className = "element2";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*10;
+						objects[22].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*6;
+                        objects[22].position.y =  ( 2 * 280 ) - 450;
+                        objects[22].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*6;
+					} else {
+						foto23.className = "element";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*3.5;
+						objects[22].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
+                        objects[22].position.y =  ( 2 * 280 ) - 450;
+                        objects[22].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+					};				
+					};																		
+var foto24 = document.createElement( 'img' );
+					foto24.src = "./Rulo-1/24_Tri_3.jpg" ;
+					foto24.className = 'element';
+					foto24.onclick = function () {
+					if (foto24.className === "element") {
+						foto24.className = "element2";
+						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*10;
+						objects[23].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*6;
+                        objects[23].position.y =  ( 2 * 280 ) - 450;
+                        objects[23].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*6;
+					} else {
+						foto24.className = "element";
 						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*3.5;
@@ -608,20 +681,20 @@ var foto26 = document.createElement( 'img' );
                         objects[23].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
 					};				
 					};			
-var foto27 = document.createElement( 'img' );
-					foto27.src = "IMG_5873.jpeg" ;
-					foto27.className = 'element';
-					foto27.onclick = function () {
-					if (foto27.className === "element") {
-						foto27.className = "element2";
+var foto25 = document.createElement( 'img' );
+					foto25.src = "./Rulo-1/25_Tri_2.jpg" ;
+					foto25.className = 'element';
+					foto25.onclick = function () {
+					if (foto25.className === "element") {
+						foto25.className = "element2";
 						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2 * 280 ) - 450;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*10;
-						objects[24].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*4;
+						objects[24].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*6;
                         objects[24].position.y =  ( 2 * 280 ) - 450;
-                        objects[24].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*4;
+                        objects[24].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*6;
 					} else {
-						foto27.className = "element";
+						foto25.className = "element";
 						camera.position.x = 900 * Math.sin( 4 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
                         camera.position.z = 900 * Math.cos( 4 * 0.524 + Math.PI )*3.5;
@@ -631,66 +704,370 @@ var foto27 = document.createElement( 'img' );
 					};				
 					};					
 var foto211 = document.createElement( 'img' );
-					foto211.src = "Dibujos/IMG_5866.jpeg" ;
+					foto211.src = "./Rulo-1/26_Color_1.jpg" ;
 					foto211.className = 'element';
 					foto211.onclick = function () {
-					window.open("Dibujos/IMG_5866.jpeg","window_name","location,height=1000,width=1000");
-					};	
+					if (foto211.className === "element") {
+						foto211.className = "element2";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*10;
+						objects[25].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*6;
+                        objects[25].position.y =  ( 2 * 280 ) - 450;
+                        objects[25].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*6;
+					} else {
+						foto211.className = "element";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*3.5;
+						objects[25].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
+                        objects[25].position.y =  ( 0 * 280 ) - 450;
+                        objects[25].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+					};				
+					};			
 var foto212 = document.createElement( 'img' );
-					foto212.src = "Dibujos/IMG_5868.jpeg" ;
+					foto212.src = "./Rulo-1/27_Circulos.jpeg" ;
 					foto212.className = 'element';
+					foto212.onclick = function () {
+					if (foto212.className === "element") {
+						foto212.className = "element2";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*10;
+						objects[26].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*6;
+                        objects[26].position.y =  ( 2 * 280 ) - 450;
+                        objects[26].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*6;
+					} else {
+						foto212.className = "element";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*3.5;
+						objects[26].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
+                        objects[26].position.y =  ( 1 * 280 ) - 450;
+                        objects[26].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+					};				
+					};		
 var foto213 = document.createElement( 'img' );
-					foto213.src = "Dibujos/IMG_5869.jpeg" ;
+					foto213.src = "./Rulo-1/28_BN_3.jpg" ;
 					foto213.className = 'element';
+					foto213.onclick = function () {
+					if (foto213.className === "element") {
+						foto213.className = "element2";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*10;
+						objects[27].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*6;
+                        objects[27].position.y =  ( 2 * 280 ) - 450;
+                        objects[27].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*6;
+					} else {
+						foto213.className = "element";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*3.5;
+						objects[27].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
+                        objects[27].position.y =  ( 2 * 280 ) - 450;
+                        objects[27].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+					};				
+					};		
 var foto214 = document.createElement( 'img' );
-					foto214.src = "Dibujos/IMG_5870.jpeg" ;
+					foto214.src = "./Rulo-1/29_BN_1.jpg" ;
 					foto214.className = 'element';
+					foto214.onclick = function () {
+					if (foto214.className === "element") {
+						foto214.className = "element2";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*10;
+						objects[28].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*6;
+                        objects[28].position.y =  ( 2 * 280 ) - 450;
+                        objects[28].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*6;
+					} else {
+						foto214.className = "element";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*3.5;
+						objects[28].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
+                        objects[28].position.y =  ( 3 * 280 ) - 450;
+                        objects[28].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+					};				
+					};		
 var foto215 = document.createElement( 'img' );
-					foto215.src = "Dibujos/IMG_5871.jpeg" ;
+					foto215.src = "./Rulo-1/30_BN_2.jpg" ;
 					foto215.className = 'element';
+					foto215.onclick = function () {
+					if (foto215.className === "element") {
+						foto215.className = "element2";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*10;
+						objects[29].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*6;
+                        objects[29].position.y =  ( 2 * 280 ) - 450;
+                        objects[29].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*6;
+					} else {
+						foto215.className = "element";
+						camera.position.x = 900 * Math.sin( 5 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 5 * 0.524 + Math.PI )*3.5;
+						objects[29].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
+                        objects[29].position.y =  ( 4 * 280 ) - 450;
+                        objects[29].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+					};				
+					};		
 var foto311 = document.createElement( 'img' );
-					foto311.src = "Dibujos/IMG_5876.jpeg" ;
+					foto311.src = "./Rulo-1/31.jpg" ;
 					foto311.className = 'element';
+					foto311.onclick = function () {
+					if (foto311.className === "element") {
+						foto311.className = "element2";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*10;
+						objects[30].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*6;
+                        objects[30].position.y =  ( 2 * 280 ) - 450;
+                        objects[30].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*6;
+					} else {
+						foto311.className = "element";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*3.5;
+						objects[30].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
+                        objects[30].position.y =  ( 0 * 280 ) - 450;
+                        objects[30].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+					};				
+					};		
 var foto312 = document.createElement( 'img' );
-					foto312.src = "Dibujos/IMG_5877.jpeg" ;
+					foto312.src = "./Rulo-1/32.jpg" ;
 					foto312.className = 'element';
+					foto312.onclick = function () {
+					if (foto312.className === "element") {
+						foto312.className = "element2";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*10;
+						objects[31].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*6;
+                        objects[31].position.y =  ( 2 * 280 ) - 450;
+                        objects[31].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*6;
+					} else {
+						foto312.className = "element";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*3.5;
+						objects[31].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
+                        objects[31].position.y =  ( 1 * 280 ) - 450;
+                        objects[31].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+					};				
+					};		
 var foto313 = document.createElement( 'img' );
-					foto313.src = "Dibujos/IMG_5879.jpeg" ;
+					foto313.src = "./Rulo-1/33.jpg" ;
 					foto313.className = 'element';
+					foto313.onclick = function () {
+					if (foto313.className === "element") {
+						foto313.className = "element2";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*10;
+						objects[32].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*6;
+                        objects[32].position.y =  ( 2 * 280 ) - 450;
+                        objects[32].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*6;
+					} else {
+						foto313.className = "element";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*3.5;
+						objects[32].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
+                        objects[32].position.y =  ( 2 * 280 ) - 450;
+                        objects[32].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+					};				
+					};		
 var foto314 = document.createElement( 'img' );
-					foto314.src = "Dibujos/IMG_5880.jpeg" ;
+					foto314.src = "./Rulo-1/34.jpg" ;
 					foto314.className = 'element';
+					foto314.onclick = function () {
+					if (foto314.className === "element") {
+						foto314.className = "element2";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*10;
+						objects[33].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*6;
+                        objects[33].position.y =  ( 2 * 280 ) - 450;
+                        objects[33].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*6;
+					} else {
+						foto314.className = "element";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*3.5;
+						objects[33].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
+                        objects[33].position.y =  ( 3 * 280 ) - 450;
+                        objects[33].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+					};				
+					};		
 var foto315 = document.createElement( 'img' );
-					foto315.src = "Dibujos/IMG_5881.jpeg" ;
+					foto315.src = "./Rulo-1/35.jpg" ;
 					foto315.className = 'element';
-
+					foto315.onclick = function () {
+					if (foto315.className === "element") {
+						foto315.className = "element2";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*10;
+						objects[34].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*6;
+                        objects[34].position.y =  ( 2 * 280 ) - 450;
+                        objects[34].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*6;
+					} else {
+						foto315.className = "element";
+						camera.position.x = 900 * Math.sin( 6 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 6 * 0.524 + Math.PI )*3.5;
+						objects[34].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
+                        objects[34].position.y =  ( 4 * 280 ) - 450;
+                        objects[34].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+					};				
+					};		
 var foto28 = document.createElement( 'img' );
-					foto28.src = "Dibujos/IMG_5861.jpeg" ;
+					foto28.src = "./Rulo-1/36.jpg" ;
 					foto28.className = 'element';
+					foto28.onclick = function () {
+					if (foto28.className === "element") {
+						foto28.className = "element2";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*10;
+						objects[35].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*6;
+                        objects[35].position.y =  ( 2 * 280 ) - 450;
+                        objects[35].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*6;
+					} else {
+						foto28.className = "element";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*3.5;
+						objects[35].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
+                        objects[35].position.y =  ( 0 * 280 ) - 450;
+                        objects[35].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+					};				
+					};		
 var foto29 = document.createElement( 'img' );
-					foto29.src = "Dibujos/IMG_5862.jpeg" ;
+					foto29.src = "./Rulo-1/37.jpg" ;
 					foto29.className = 'element';
+					foto29.onclick = function () {
+					if (foto29.className === "element") {
+						foto29.className = "element2";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*10;
+						objects[36].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*6;
+                        objects[36].position.y =  ( 2 * 280 ) - 450;
+                        objects[36].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*6;
+					} else {
+						foto29.className = "element";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*3.5;
+						objects[36].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
+                        objects[36].position.y =  ( 1 * 280 ) - 450;
+                        objects[36].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+					};				
+					};	
 var foto30 = document.createElement( 'img' );
-					foto30.src = "Dibujos/IMG_5865.jpeg" ;
-					foto30.className = 'element';	
+					foto30.src = "./Rulo-1/38.jpg" ;
+					foto30.className = 'element';
+					foto30.onclick = function () {
+					if (foto30.className === "element") {
+						foto30.className = "element2";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*10;
+						objects[37].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*6;
+                        objects[37].position.y =  ( 2 * 280 ) - 450;
+                        objects[37].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*6;
+					} else {
+						foto30.className = "element";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*3.5;
+						objects[37].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
+                        objects[37].position.y =  ( 2 * 280 ) - 450;
+                        objects[37].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+					};				
+					};		
 var foto31 = document.createElement( 'img' );
-					foto31.src = "Dibujos/IMG_5882.jpeg" ;					
+					foto31.src = "./Rulo-1/39.jpg" ;					
 					foto31.className = 'element';
+					foto31.onclick = function () {
+					if (foto31.className === "element") {
+						foto31.className = "element2";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*10;
+						objects[38].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*6;
+                        objects[38].position.y =  ( 2 * 280 ) - 450;
+                        objects[38].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*6;
+					} else {
+						foto31.className = "element";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*3.5;
+						objects[38].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
+                        objects[38].position.y =  ( 3 * 280 ) - 450;
+                        objects[38].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+					};				
+					};	
 var foto415 = document.createElement( 'img' );
-					foto415.src = "" ;
-					foto415.className = 'element';	
+					foto415.src = "./Rulo-1/40.jpg" ;
+					foto415.className = 'element';
+					foto415.onclick = function () {
+					if (foto415.className === "element") {
+						foto415.className = "element2";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*10;
+						objects[39].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*6;
+                        objects[39].position.y =  ( 2 * 280 ) - 450;
+                        objects[39].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*6;
+					} else {
+						foto415.className = "element";
+						camera.position.x = 900 * Math.sin( 7 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 7 * 0.524 + Math.PI )*3.5;
+						objects[39].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
+                        objects[39].position.y =  ( 4 * 280 ) - 450;
+                        objects[39].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+					};				
+					};		
 
 var foto412 = document.createElement( 'img' );
-					foto412.src = "Dibujos/Postales.jpg" ;
+					foto412.src = "./Rulo-1/21_Japo_2.jpg" ;
 					foto412.className = 'element';
 					foto412.onclick = function () {
 					transform( targets.grid, 2000 );
-                    camera.position.y = 3000;
-                    camera.position.z = 0;
+                //    camera.position.y = 3000;
+                //    camera.position.z = 0;
 				};
 var foto413 = document.createElement( 'img' );
-					foto413.src = "Dibujos/Blanco.jpg" ;
+					foto413.src = "Postales/Blanco.jpg" ;
 					foto413.className = 'element';
+					foto413.style.opacity = 1;
+var nombre = document.createElement( 'div' );
+					var cartel = document.createElement( 'div' );
+					cartel.className = 'element';
+					nombre.className = 'symbol';
+					nombre.textContent = "VER RESTO";
+					cartel.appendChild( nombre );
+
+cartel.onclick = function () {
+
+						foto6.className = "element2";
+						objects[5].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI )*4;
+                        objects[5].position.y =  ( 2 * 280 ) - 450;
+                        objects[5].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI )*4;
+
+						foto11.className = "element2";
+						objects[10].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
+                        objects[10].position.y =  ( 2 * 280 ) - 450;
+                        objects[10].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
+
+
+					};					
+
 var foto414 = document.createElement( 'img' );
 					foto414.src = "Dibujos/Dibujos.jpg" ;
 					foto414.className = 'element';			
@@ -714,17 +1091,17 @@ var foto414 = document.createElement( 'img' );
 				foto14, "Silicon", "28.0855", 14, 3,
 				foto15, "Phosphorus", "30.973762", 15, 3,
 				
-				foto21, "Dominante", "1.00794", 1,1,
-				foto22, "Ton. Secundaria", "4.002602", 18, 1,
-				foto23, "Lithium", "6.941", 1, 2,
-				foto24, "Beryllium", "9.012182", 2, 2,
-				foto25, "Dominante", "10.811", 13, 2,
+				foto16, "Dominante", "1.00794", 1,1,
+				foto17, "Ton. Secundaria", "4.002602", 18, 1,
+				foto18, "Lithium", "6.941", 1, 2,
+				foto19, "Beryllium", "9.012182", 2, 2,
+				foto20, "Dominante", "10.811", 13, 2,
 				
-                foto412, "Carbon", "12.0107", 14, 2,
-				foto413, "Nitrogen", "14.0067", 15, 2,
-				foto414, "Oxygen", "15.9994", 16, 2,
-				foto26, "Fluorine", "18.9984032", 17, 2,
-				foto27, "Neon", "20.1797", 18, 2,
+                foto21, "Carbon", "12.0107", 14, 2,
+				foto22, "Nitrogen", "14.0067", 15, 2,
+				foto23, "Oxygen", "15.9994", 16, 2,
+				foto24, "Fluorine", "18.9984032", 17, 2,
+				foto25, "Neon", "20.1797", 18, 2,
 				
                 foto211, "Sodium", "22.98976...", 1, 3,
 				foto212, "Magnesium", "24.305", 2, 3,
@@ -948,6 +1325,10 @@ var foto414 = document.createElement( 'img' );
                    scene.add( object );
                                   
 					objects.push( object );
+
+
+					
+
 					
 
 			// CILINDRO
@@ -1063,7 +1444,7 @@ var foto414 = document.createElement( 'img' );
 
 			// MATRIX
 
-				for ( var i = 0; i < 25; i ++ ) {
+				for ( var i = 0; i < objects.length; i ++ ) {
 
 					var object = new THREE.Object3D();
 
