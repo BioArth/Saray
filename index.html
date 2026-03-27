@@ -166,17 +166,31 @@
 
 var botonfavoritos = document.getElementById("favoritos");
 					botonfavoritos.onclick = function () {
-						document.getElementById('salir').style.display = 'block';
-						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
-                        camera.position.y =  ( 2.3 * 280 ) - 450;
-                        camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
-						for ( var k = 0; k < 10; k += 1 ) {
-							favoritos.fotos[k].className = "element2";
-							favoritos.objetos[k].position.x = 900 * Math.sin( k/5 * 0.524 + Math.PI )*5.5;
-                        	favoritos.objetos[k].position.y =  ( 2 * 280 ) - 450;
-                        	favoritos.objetos[k].position.z = 900 * Math.cos( k/5 * 0.524 + Math.PI )*5.5;
-							favoritos.objetos[k].lookAt( 900 * Math.sin( k/5 * 0.524 + Math.PI )*50, ( 2 * 280 ) - 450, 900 * Math.cos( k/5 * 0.524 + Math.PI )*50 );
-						};
+						if (favoritos.fotos[0].className === "element2") {
+							botonsalir.style.display = "none";
+							camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
+                        	camera.position.y =  ( 2.5 * 280 ) - 450;
+                        	camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*3.5;
+							for ( var k = 0; k < 10; k += 1 ) {
+								favoritos.fotos[k].className = "element";
+								favoritos.objetos[k].position.x = favoritos.posicion[k].x;
+								favoritos.objetos[k].position.y = favoritos.posicion[k].y;
+								favoritos.objetos[k].position.z = favoritos.posicion[k].z;
+								favoritos.objetos[k].lookAt( favoritos.posicion[k].x*50, favoritos.posicion[k].y, favoritos.posicion[k].z*50 );
+							};
+						} else {				
+							document.getElementById('salir').style.display = 'block';
+							camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
+							camera.position.y =  ( 2.3 * 280 ) - 450;
+							camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
+							for ( var k = 0; k < 10; k += 1 ) {
+								favoritos.fotos[k].className = "element2";
+								favoritos.objetos[k].position.x = 900 * Math.sin( k/5 * 0.524 + Math.PI )*5.5;
+								favoritos.objetos[k].position.y =  ( 2 * 280 ) - 450;
+								favoritos.objetos[k].position.z = 900 * Math.cos( k/5 * 0.524 + Math.PI )*5.5;
+								favoritos.objetos[k].lookAt( 900 * Math.sin( k/5 * 0.524 + Math.PI )*50, ( 2 * 280 ) - 450, 900 * Math.cos( k/5 * 0.524 + Math.PI )*50 );
+							};
+						};	
 					};
 var botonsalir = document.getElementById('salir');
 					botonsalir.onclick = function () {
@@ -717,7 +731,7 @@ var foto17 = document.createElement( 'img' );
                         objects[16].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
 						if (foto17gusta === "") {
 						    foto17gusta = prompt("¿Te gusta este dibujo?  \n \n Acepta para añadir a FAVORITOS y crear una vista personalizada del portfolio", "¡ME ENCANTA!");
-							if (foto10gusta === "¡ME ENCANTA!") {
+							if (foto17gusta === "¡ME ENCANTA!") {
 								favoritos.objetos.push(objects[16]);	
 								favoritos.fotos.push(foto17);
 								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
