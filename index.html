@@ -39,6 +39,15 @@
 				width: 100%;
 				text-align: center;
 			}
+
+			#menu2 {
+				position: absolute;
+				left: 55%;
+				top: 18%;
+				//bottom: 20px;
+				//width: 100%;
+				text-align: center;
+			}
             
             .triangle {
               width: 0;
@@ -121,6 +130,14 @@
 				color: #000000;
 				background-color: rgba(0,255,255,0.75);
 			}
+			.button2 {
+				color: rgba(255, 127, 127, 0.75);
+				background: transparent;
+				outline: 1px solid rgba(255, 127, 127, 0.75);
+				border: 0px;
+				padding: 5px 10px;
+				cursor: pointer;
+			}
 		</style>
 	</head>
 	<body>
@@ -133,11 +150,13 @@
 		<div id="container"></div>
 		<div id="info">PORTFOLIO PERSONAL de Saray Niembro</div>
 		<div id="menu">
-<!--			<button id="cilindro">CILINDRO</button>
-			<button id="capas">3 CAPAS</button>
-			<button id="techo">TONNETZ TECHO</button>
+			<button id="favoritos">FAVORITOS</button>
+<!--			<button id="techo">TONNETZ TECHO</button>
 			<button id="matrix">MATRIX</button>
 			-->
+		</div>
+		<div id="menu2">
+		<button id="salir" class="button2" style="display:none;">SALIR</button>
 		</div>
         
         <div id="triangle"></div>
@@ -145,11 +164,41 @@
 
 		<script>
 
+var botonfavoritos = document.getElementById("favoritos");
+					botonfavoritos.onclick = function () {
+						document.getElementById('salir').style.display = 'block';
+						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*10;
+                        camera.position.y =  ( 2.3 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*10;
+						for ( var k = 0; k < 10; k += 1 ) {
+							favoritos.fotos[k].className = "element2";
+							favoritos.objetos[k].position.x = 900 * Math.sin( k/5 * 0.524 + Math.PI )*5.5;
+                        	favoritos.objetos[k].position.y =  ( 2 * 280 ) - 450;
+                        	favoritos.objetos[k].position.z = 900 * Math.cos( k/5 * 0.524 + Math.PI )*5.5;
+							favoritos.objetos[k].lookAt( 900 * Math.sin( k/5 * 0.524 + Math.PI )*50, ( 2 * 280 ) - 450, 900 * Math.cos( k/5 * 0.524 + Math.PI )*50 );
+						};
+					};
+var botonsalir = document.getElementById('salir');
+					botonsalir.onclick = function () {
+						botonsalir.style.display = "none";
+						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
+                        camera.position.y =  ( 2.5 * 280 ) - 450;
+                        camera.position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*3.5;
+						for ( var k = 0; k < 10; k += 1 ) {
+							favoritos.fotos[k].className = "element";
+							favoritos.objetos[k].position.x = favoritos.posicion[k].x;
+							favoritos.objetos[k].position.y = favoritos.posicion[k].y;
+							favoritos.objetos[k].position.z = favoritos.posicion[k].z;
+							favoritos.objetos[k].lookAt( favoritos.posicion[k].x*50, favoritos.posicion[k].y, favoritos.posicion[k].z*50 );
+						};						
+					}					
 
+var favoritos = { fotos: [], objetos: [], posicion: [] };					
 
 var foto1 = document.createElement( 'img' );
 					foto1.src = "./Rulo-1/1_Prebarco_primario_1.jpg" ;
 					foto1.className = 'element';
+					var foto1gusta = "";
 					foto1.onclick = function () {
 					if (foto1.className === "element") {
 						foto1.className = "element2";
@@ -159,11 +208,7 @@ var foto1 = document.createElement( 'img' );
 						objects[0].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*6;
                         objects[0].position.y =  ( 2 * 280 ) - 450;
                         objects[0].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI )*6;
-						objects[21].position.x = 900 * Math.sin( 0.5 * 0.524 + Math.PI )*4;
-                        objects[21].position.y =  ( 2 * 280 ) - 450;
-                        objects[21].position.z = 900 * Math.cos( 0.5 * 0.524 + Math.PI )*4;
-						objects[21].lookAt( objects[7].position.x*50, objects[7].position.y, objects[7].position.z*50 );
-					} else {
+					} else {						
 						foto1.className = "element";
 						camera.position.x = 900 * Math.sin( 0 * 0.524 + Math.PI )*3.5;
                         camera.position.y =  ( 2.5 * 280 ) - 450;
@@ -171,12 +216,21 @@ var foto1 = document.createElement( 'img' );
 						objects[0].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI );
                         objects[0].position.y =  ( 0 * 280 ) - 450;
                         objects[0].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI );
+						if (foto1gusta === "") {
+						    foto1gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto1gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[0]);	
+								favoritos.fotos.push(foto1);
+								favoritos.posicion.push({x:900 * Math.sin( 0 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 0 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};
 				 
 var foto2 = document.createElement( 'img' );
 					foto2.src = "./Rulo-1/2_Fiery_Color_00417.jpg" ;
 					foto2.className = 'element';
+					var foto2gusta = "";
 					foto2.onclick = function () {
 					if (foto2.className === "element") {
 						foto2.className = "element2";
@@ -194,12 +248,21 @@ var foto2 = document.createElement( 'img' );
 						objects[1].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI );
                         objects[1].position.y =  ( 1 * 280 ) - 450;
                         objects[1].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI );
+						if (foto2gusta === "") {
+						    foto2gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto2gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[1]);	
+								favoritos.fotos.push(foto2);
+								favoritos.posicion.push({x:900 * Math.sin( 0 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 0 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};
 
 var foto3 = document.createElement( 'img' );
 					foto3.src = "./Rulo-1/3_PrimeroBN_2_resized.jpg" ;
 					foto3.className = 'element';
+					var foto3gusta = "";
 					foto3.onclick = function () {
 					if (foto3.className === "element") {
 						foto3.className = "element2";
@@ -217,11 +280,20 @@ var foto3 = document.createElement( 'img' );
 						objects[2].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI );
                         objects[2].position.y =  ( 2 * 280 ) - 450;
                         objects[2].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI );
+						if (foto3gusta === "") {
+						    foto3gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto3gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[2]);	
+								favoritos.fotos.push(foto3);
+								favoritos.posicion.push({x:900 * Math.sin( 0 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 0 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};
 var foto4 = document.createElement( 'img' );
 					foto4.src = "./Rulo-1/4_PrimeroBN_1_resized.jpg" ;
 					foto4.className = 'element';
+					var foto4gusta = "";
 					foto4.onclick = function () {
 					if (foto4.className === "element") {
 						foto4.className = "element2";
@@ -239,11 +311,20 @@ var foto4 = document.createElement( 'img' );
 						objects[3].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI );
                         objects[3].position.y =  ( 3 * 280 ) - 450;
                         objects[3].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI );
+						if (foto4gusta === "") {
+						    foto4gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto4gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[3]);	
+								favoritos.fotos.push(foto4);
+								favoritos.posicion.push({x:900 * Math.sin( 0 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 0 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};
 var foto5 = document.createElement( 'img' );
 					foto5.src = "./Rulo-1/5_PrimeroBN_3_resized.jpg" ;
 					foto5.className = 'element';
+					foto5gusta = "";
 					foto5.onclick = function () {
 					if (foto5.className === "element") {
 						foto5.className = "element2";
@@ -261,11 +342,20 @@ var foto5 = document.createElement( 'img' );
 						objects[4].position.x = 900 * Math.sin( 0 * 0.524 + Math.PI );
                         objects[4].position.y =  ( 4 * 280 ) - 450;
                         objects[4].position.z = 900 * Math.cos( 0 * 0.524 + Math.PI );
+						if (foto5gusta === "") {
+						    foto5gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto5gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[4]);	
+								favoritos.fotos.push(foto5);
+								favoritos.posicion.push({x:900 * Math.sin( 0 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 0 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto6 = document.createElement( 'img' );
 					foto6.src = "./Rulo-1/6_Prebarco_primario_2.jpg" ;
 					foto6.className = 'element';
+					foto6gusta = "";
 					foto6.onclick = function () {
 					if (foto6.className === "element") {
 						foto6.className = "element2";
@@ -283,11 +373,20 @@ var foto6 = document.createElement( 'img' );
 						objects[5].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI );
                         objects[5].position.y =  ( 0 * 280 ) - 450;
                         objects[5].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI );
+						if (foto6gusta === "") {
+						    foto6gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto6gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[5]);	
+								favoritos.fotos.push(foto6);
+								favoritos.posicion.push({x:900 * Math.sin( 1 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 1 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto7 = document.createElement( 'img' );
 					foto7.src = "./Rulo-1/7_Fira_RG.jpg" ;
 					foto7.className = 'element';
+					foto7gusta = "";
 					foto7.onclick = function () {
 					if (foto7.className === "element") {
 						foto7.className = "element2";
@@ -305,11 +404,20 @@ var foto7 = document.createElement( 'img' );
 						objects[6].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI );
                         objects[6].position.y =  ( 1 * 280 ) - 450;
                         objects[6].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI );
+						if (foto7gusta === "") {
+						    foto7gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto7gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[6]);	
+								favoritos.fotos.push(foto7);
+								favoritos.posicion.push({x:900 * Math.sin( 1 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 1 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto8 = document.createElement( 'img' );
 					foto8.src = "./Rulo-1/8_Barco_4.jpg" ;
 					foto8.className = 'element';
+					foto8gusta = "";
 					foto8.onclick = function () {
 					if (foto8.className === "element") {
 						foto8.className = "element2";
@@ -327,11 +435,20 @@ var foto8 = document.createElement( 'img' );
 						objects[7].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI );
                         objects[7].position.y =  ( 2 * 280 ) - 450;
                         objects[7].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI );
+						if (foto8gusta === "") {
+						    foto8gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto8gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[7]);	
+								favoritos.fotos.push(foto8);
+								favoritos.posicion.push({x:900 * Math.sin( 1 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 1 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto9 = document.createElement( 'img' );
 					foto9.src = "./Rulo-1/9_Barco_5.jpg" ;
 					foto9.className = 'element';
+					foto9gusta = "";
 					foto9.onclick = function () {
 					if (foto9.className === "element") {
 						foto9.className = "element2";
@@ -349,11 +466,20 @@ var foto9 = document.createElement( 'img' );
 						objects[8].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI );
                         objects[8].position.y =  ( 3 * 280 ) - 450;
                         objects[8].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI );
+						if (foto9gusta === "") {
+						    foto9gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto9gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[8]);	
+								favoritos.fotos.push(foto9);
+								favoritos.posicion.push({x:900 * Math.sin( 1 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 1 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto10 = document.createElement( 'img' );
 					foto10.src = "./Rulo-1/10_Barco_3.jpg" ;
 					foto10.className = 'element';
+					foto10gusta = "";
 					foto10.onclick = function () {
 					if (foto10.className === "element") {
 						foto10.className = "element2";
@@ -371,11 +497,20 @@ var foto10 = document.createElement( 'img' );
 						objects[9].position.x = 900 * Math.sin( 1 * 0.524 + Math.PI );
                         objects[9].position.y =  ( 4 * 280 ) - 450;
                         objects[9].position.z = 900 * Math.cos( 1 * 0.524 + Math.PI );
+						if (foto10gusta === "") {
+						    foto10gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto10gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[9]);	
+								favoritos.fotos.push(foto10);
+								favoritos.posicion.push({x:900 * Math.sin( 1 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 1 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto11 = document.createElement( 'img' );
 					foto11.src = "./Rulo-1/11_Prebarco_primario_3.jpg" ;
 					foto11.className = 'element';
+					foto11gusta = "";
 					foto11.onclick = function () {
 					if (foto11.className === "element") {
 						foto11.className = "element2";
@@ -393,11 +528,20 @@ var foto11 = document.createElement( 'img' );
 						objects[10].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI );
                         objects[10].position.y =  ( 0 * 280 ) - 450;
                         objects[10].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
+						if (foto11gusta === "") {
+						    foto11gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto11gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[10]);	
+								favoritos.fotos.push(foto11);
+								favoritos.posicion.push({x:900 * Math.sin( 2 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 2 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto12 = document.createElement( 'img' );
 					foto12.src = "./Rulo-1/12_Bicolo_1.jpg" ;
 					foto12.className = 'element';
+					foto12gusta = "";
 					foto12.onclick = function () {
 					if (foto12.className === "element") {
 						foto12.className = "element2";
@@ -415,11 +559,20 @@ var foto12 = document.createElement( 'img' );
 						objects[11].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI );
                         objects[11].position.y =  ( 1 * 280 ) - 450;
                         objects[11].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
+						if (foto12gusta === "") {
+						    foto12gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto12gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[11]);	
+								favoritos.fotos.push(foto12);
+								favoritos.posicion.push({x:900 * Math.sin( 2 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 2 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto13 = document.createElement( 'img' );
 					foto13.src = "./Rulo-1/13_Barco_12.jpg" ;
 					foto13.className = 'element';
+					foto13gusta = "";
 					foto13.onclick = function () {
 					if (foto13.className === "element") {
 						foto13.className = "element2";
@@ -437,11 +590,20 @@ var foto13 = document.createElement( 'img' );
 						objects[12].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI );
                         objects[12].position.y =  ( 2 * 280 ) - 450;
                         objects[12].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
+						if (foto13gusta === "") {
+						    foto13gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto13gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[12]);	
+								favoritos.fotos.push(foto13);
+								favoritos.posicion.push({x:900 * Math.sin( 2 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 2 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto14 = document.createElement( 'img' );
 					foto14.src = "./Rulo-1/14_Barco_11.jpg" ;
 					foto14.className = 'element';
+					foto14gusta = "";
 					foto14.onclick = function () {
 					if (foto14.className === "element") {
 						foto14.className = "element2";
@@ -459,11 +621,20 @@ var foto14 = document.createElement( 'img' );
 						objects[13].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI );
                         objects[13].position.y =  ( 3 * 280 ) - 450;
                         objects[13].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
+						if (foto14gusta === "") {
+						    foto14gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto14gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[13]);	
+								favoritos.fotos.push(foto14);
+								favoritos.posicion.push({x:900 * Math.sin( 2 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 2 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto15 = document.createElement( 'img' );
 					foto15.src = "./Rulo-1/15_Barco_6.jpg" ;
 					foto15.className = 'element';
+					foto15gusta = "";
 					foto15.onclick = function () {
 					if (foto15.className === "element") {
 						foto15.className = "element2";
@@ -481,11 +652,20 @@ var foto15 = document.createElement( 'img' );
 						objects[14].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI );
                         objects[14].position.y =  ( 4 * 280 ) - 450;
                         objects[14].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI );
+						if (foto15gusta === "") {
+						    foto15gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto15gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[14]);	
+								favoritos.fotos.push(foto15);
+								favoritos.posicion.push({x:900 * Math.sin( 2 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 2 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto16 = document.createElement( 'img' );
 					foto16.src = "./Rulo-1/16_Japo_1.jpg" ;
 					foto16.className = 'element';
+					foto16gusta = "";
 					foto16.onclick = function () {
 					if (foto16.className === "element") {
 						foto16.className = "element2";
@@ -503,11 +683,20 @@ var foto16 = document.createElement( 'img' );
 						objects[15].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI );
                         objects[15].position.y =  ( 0 * 280 ) - 450;
                         objects[15].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
+						if (foto16gusta === "") {
+						    foto16gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto16gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[15]);	
+								favoritos.fotos.push(foto16);
+								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};			
 var foto17 = document.createElement( 'img' );
 					foto17.src = "./Rulo-1/17_Bicolo_2.jpg" ;
 					foto17.className = 'element';
+					foto17gusta = "";
 					foto17.onclick = function () {
 					if (foto17.className === "element") {
 						foto17.className = "element2";
@@ -525,11 +714,20 @@ var foto17 = document.createElement( 'img' );
 						objects[16].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI );
                         objects[16].position.y =  ( 1 * 280 ) - 450;
                         objects[16].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
+						if (foto17gusta === "") {
+						    foto17gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto10gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[16]);	
+								favoritos.fotos.push(foto17);
+								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto18 = document.createElement( 'img' );
 					foto18.src = "./Rulo-1/18_Barco_2.jpg" ;
 					foto18.className = 'element';
+					foto18gusta = "";
 					foto18.onclick = function () {
 					if (foto18.className === "element") {
 						foto18.className = "element2";
@@ -547,11 +745,20 @@ var foto18 = document.createElement( 'img' );
 						objects[17].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI );
                         objects[17].position.y =  ( 2 * 280 ) - 450;
                         objects[17].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
+						if (foto18gusta === "") {
+						    foto18gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto18gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[17]);	
+								favoritos.fotos.push(foto18);
+								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto19 = document.createElement( 'img' );
 					foto19.src = "./Rulo-1/19_Barco_7.jpg" ;
 					foto19.className = 'element';
+					foto19gusta = "";
 					foto19.onclick = function () {
 					if (foto19.className === "element") {
 						foto19.className = "element2";
@@ -569,11 +776,20 @@ var foto19 = document.createElement( 'img' );
 						objects[18].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI );
                         objects[18].position.y =  ( 3 * 280 ) - 450;
                         objects[18].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
+						if (foto19gusta === "") {
+						    foto19gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto19gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[18]);	
+								favoritos.fotos.push(foto19);
+								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};			
 var foto20 = document.createElement( 'img' );
 					foto20.src = "./Rulo-1/20_Barco_1.jpg" ;
 					foto20.className = 'element';
+					foto20gusta = "";
 					foto20.onclick = function () {
 					if (foto20.className === "element") {
 						foto20.className = "element2";
@@ -591,11 +807,20 @@ var foto20 = document.createElement( 'img' );
 						objects[19].position.x = 900 * Math.sin( 3 * 0.524 + Math.PI );
                         objects[19].position.y =  ( 4 * 280 ) - 450;
                         objects[19].position.z = 900 * Math.cos( 3 * 0.524 + Math.PI );
+						if (foto20gusta === "") {
+						    foto20gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto20gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[19]);	
+								favoritos.fotos.push(foto20);
+								favoritos.posicion.push({x:900 * Math.sin( 3 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 3 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};
 var foto21 = document.createElement( 'img' );
 					foto21.src = "./Rulo-1/21_Japo_2.jpg" ;
 					foto21.className = 'element';
+					foto21gusta = "";
 					foto21.onclick = function () {
 					if (foto21.className === "element") {
 						foto21.className = "element2";
@@ -613,11 +838,20 @@ var foto21 = document.createElement( 'img' );
 						objects[20].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
                         objects[20].position.y =  ( 0 * 280 ) - 450;
                         objects[20].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+						if (foto21gusta === "") {
+						    foto21gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto21gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[20]);	
+								favoritos.fotos.push(foto21);
+								favoritos.posicion.push({x:900 * Math.sin( 4 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 4 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto22 = document.createElement( 'img' );
 					foto22.src = "./Rulo-1/22_PostPre_2.jpg" ;
 					foto22.className = 'element';
+					foto22gusta = "";
 					foto22.onclick = function () {
 					if (foto22.className === "element") {
 						foto22.className = "element2";
@@ -635,11 +869,20 @@ var foto22 = document.createElement( 'img' );
 						objects[21].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
                         objects[21].position.y =  ( 1 * 280 ) - 450;
                         objects[21].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+						if (foto22gusta === "") {
+						    foto22gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto22gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[21]);	
+								favoritos.fotos.push(foto22);
+								favoritos.posicion.push({x:900 * Math.sin( 4 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 4 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto23 = document.createElement( 'img' );
 					foto23.src = "./Rulo-1/23_PostPre_1.jpg" ;
 					foto23.className = 'element';
+					foto23gusta = "";
 					foto23.onclick = function () {
 					if (foto23.className === "element") {
 						foto23.className = "element2";
@@ -657,11 +900,20 @@ var foto23 = document.createElement( 'img' );
 						objects[22].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
                         objects[22].position.y =  ( 2 * 280 ) - 450;
                         objects[22].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+						if (foto23gusta === "") {
+						    foto23gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto23gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[22]);	
+								favoritos.fotos.push(foto23);
+								favoritos.posicion.push({x:900 * Math.sin( 4 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 4 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};																		
 var foto24 = document.createElement( 'img' );
 					foto24.src = "./Rulo-1/24_Tri_3.jpg" ;
 					foto24.className = 'element';
+					foto24gusta = "";
 					foto24.onclick = function () {
 					if (foto24.className === "element") {
 						foto24.className = "element2";
@@ -679,11 +931,20 @@ var foto24 = document.createElement( 'img' );
 						objects[23].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
                         objects[23].position.y =  ( 3 * 280 ) - 450;
                         objects[23].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+						if (foto24gusta === "") {
+						    foto24gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto24gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[23]);	
+								favoritos.fotos.push(foto24);
+								favoritos.posicion.push({x:900 * Math.sin( 4 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 4 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};			
 var foto25 = document.createElement( 'img' );
 					foto25.src = "./Rulo-1/25_Tri_2.jpg" ;
 					foto25.className = 'element';
+					foto25gusta = "";
 					foto25.onclick = function () {
 					if (foto25.className === "element") {
 						foto25.className = "element2";
@@ -701,11 +962,20 @@ var foto25 = document.createElement( 'img' );
 						objects[24].position.x = 900 * Math.sin( 4 * 0.524 + Math.PI );
                         objects[24].position.y =  ( 4 * 280 ) - 450;
                         objects[24].position.z = 900 * Math.cos( 4 * 0.524 + Math.PI );
+						if (foto25gusta === "") {
+						    foto25gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto25gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[24]);	
+								favoritos.fotos.push(foto25);
+								favoritos.posicion.push({x:900 * Math.sin( 4 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 4 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};					
 var foto211 = document.createElement( 'img' );
 					foto211.src = "./Rulo-1/26_Color_1.jpg" ;
 					foto211.className = 'element';
+					foto211gusta = "";
 					foto211.onclick = function () {
 					if (foto211.className === "element") {
 						foto211.className = "element2";
@@ -723,11 +993,20 @@ var foto211 = document.createElement( 'img' );
 						objects[25].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
                         objects[25].position.y =  ( 0 * 280 ) - 450;
                         objects[25].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+						if (foto211gusta === "") {
+						    foto211gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto211gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[25]);	
+								favoritos.fotos.push(foto211);
+								favoritos.posicion.push({x:900 * Math.sin( 5 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 5 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};			
 var foto212 = document.createElement( 'img' );
 					foto212.src = "./Rulo-1/27_Circulos.jpeg" ;
 					foto212.className = 'element';
+					foto212gusta = "";
 					foto212.onclick = function () {
 					if (foto212.className === "element") {
 						foto212.className = "element2";
@@ -745,11 +1024,20 @@ var foto212 = document.createElement( 'img' );
 						objects[26].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
                         objects[26].position.y =  ( 1 * 280 ) - 450;
                         objects[26].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+						if (foto212gusta === "") {
+						    foto212gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto212gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[26]);	
+								favoritos.fotos.push(foto212);
+								favoritos.posicion.push({x:900 * Math.sin( 5 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 5 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto213 = document.createElement( 'img' );
 					foto213.src = "./Rulo-1/28_BN_3.jpg" ;
 					foto213.className = 'element';
+					foto213gusta = "";
 					foto213.onclick = function () {
 					if (foto213.className === "element") {
 						foto213.className = "element2";
@@ -767,11 +1055,20 @@ var foto213 = document.createElement( 'img' );
 						objects[27].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
                         objects[27].position.y =  ( 2 * 280 ) - 450;
                         objects[27].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+						if (foto213gusta === "") {
+						    foto213gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto213gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[27]);	
+								favoritos.fotos.push(foto213);
+								favoritos.posicion.push({x:900 * Math.sin( 5 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 5 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto214 = document.createElement( 'img' );
 					foto214.src = "./Rulo-1/29_BN_1.jpg" ;
 					foto214.className = 'element';
+					foto214gusta = "";
 					foto214.onclick = function () {
 					if (foto214.className === "element") {
 						foto214.className = "element2";
@@ -789,11 +1086,20 @@ var foto214 = document.createElement( 'img' );
 						objects[28].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
                         objects[28].position.y =  ( 3 * 280 ) - 450;
                         objects[28].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+						if (foto214gusta === "") {
+						    foto214gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto214gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[28]);	
+								favoritos.fotos.push(foto214);
+								favoritos.posicion.push({x:900 * Math.sin( 5 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 5 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto215 = document.createElement( 'img' );
 					foto215.src = "./Rulo-1/30_BN_2.jpg" ;
 					foto215.className = 'element';
+					foto215gusta = "";
 					foto215.onclick = function () {
 					if (foto215.className === "element") {
 						foto215.className = "element2";
@@ -811,11 +1117,20 @@ var foto215 = document.createElement( 'img' );
 						objects[29].position.x = 900 * Math.sin( 5 * 0.524 + Math.PI );
                         objects[29].position.y =  ( 4 * 280 ) - 450;
                         objects[29].position.z = 900 * Math.cos( 5 * 0.524 + Math.PI );
+						if (foto215gusta === "") {
+						    foto215gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto215gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[29]);	
+								favoritos.fotos.push(foto215);
+								favoritos.posicion.push({x:900 * Math.sin( 5 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 5 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto311 = document.createElement( 'img' );
 					foto311.src = "./Rulo-1/31.jpg" ;
 					foto311.className = 'element';
+					foto311gusta = "";
 					foto311.onclick = function () {
 					if (foto311.className === "element") {
 						foto311.className = "element2";
@@ -833,11 +1148,20 @@ var foto311 = document.createElement( 'img' );
 						objects[30].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
                         objects[30].position.y =  ( 0 * 280 ) - 450;
                         objects[30].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+						if (foto311gusta === "") {
+						    foto311gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto311gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[30]);	
+								favoritos.fotos.push(foto311);
+								favoritos.posicion.push({x:900 * Math.sin( 6 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 6 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto312 = document.createElement( 'img' );
 					foto312.src = "./Rulo-1/32.jpg" ;
 					foto312.className = 'element';
+					foto312gusta = "";
 					foto312.onclick = function () {
 					if (foto312.className === "element") {
 						foto312.className = "element2";
@@ -855,11 +1179,20 @@ var foto312 = document.createElement( 'img' );
 						objects[31].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
                         objects[31].position.y =  ( 1 * 280 ) - 450;
                         objects[31].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+						if (foto312gusta === "") {
+						    foto312gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto312gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[31]);	
+								favoritos.fotos.push(foto312);
+								favoritos.posicion.push({x:900 * Math.sin( 6 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 6 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto313 = document.createElement( 'img' );
 					foto313.src = "./Rulo-1/33.jpg" ;
 					foto313.className = 'element';
+					foto313gusta = "";
 					foto313.onclick = function () {
 					if (foto313.className === "element") {
 						foto313.className = "element2";
@@ -877,11 +1210,20 @@ var foto313 = document.createElement( 'img' );
 						objects[32].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
                         objects[32].position.y =  ( 2 * 280 ) - 450;
                         objects[32].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+						if (foto313gusta === "") {
+						    foto313gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto313gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[32]);	
+								favoritos.fotos.push(foto313);
+								favoritos.posicion.push({x:900 * Math.sin( 6 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 6 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto314 = document.createElement( 'img' );
 					foto314.src = "./Rulo-1/34.jpg" ;
 					foto314.className = 'element';
+					foto314gusta = "";
 					foto314.onclick = function () {
 					if (foto314.className === "element") {
 						foto314.className = "element2";
@@ -899,11 +1241,20 @@ var foto314 = document.createElement( 'img' );
 						objects[33].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
                         objects[33].position.y =  ( 3 * 280 ) - 450;
                         objects[33].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+						if (foto314gusta === "") {
+						    foto314gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto314gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[33]);	
+								favoritos.fotos.push(foto314);
+								favoritos.posicion.push({x:900 * Math.sin( 6 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 6 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto315 = document.createElement( 'img' );
 					foto315.src = "./Rulo-1/35.jpg" ;
 					foto315.className = 'element';
+					foto315gusta = "";
 					foto315.onclick = function () {
 					if (foto315.className === "element") {
 						foto315.className = "element2";
@@ -921,11 +1272,20 @@ var foto315 = document.createElement( 'img' );
 						objects[34].position.x = 900 * Math.sin( 6 * 0.524 + Math.PI );
                         objects[34].position.y =  ( 4 * 280 ) - 450;
                         objects[34].position.z = 900 * Math.cos( 6 * 0.524 + Math.PI );
+						if (foto315gusta === "") {
+						    foto315gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto315gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[34]);	
+								favoritos.fotos.push(foto315);
+								favoritos.posicion.push({x:900 * Math.sin( 6 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 6 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto28 = document.createElement( 'img' );
 					foto28.src = "./Rulo-1/36.jpg" ;
 					foto28.className = 'element';
+					foto28gusta = "";
 					foto28.onclick = function () {
 					if (foto28.className === "element") {
 						foto28.className = "element2";
@@ -943,11 +1303,20 @@ var foto28 = document.createElement( 'img' );
 						objects[35].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
                         objects[35].position.y =  ( 0 * 280 ) - 450;
                         objects[35].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+						if (foto28gusta === "") {
+						    foto28gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto28gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[35]);	
+								favoritos.fotos.push(foto28);
+								favoritos.posicion.push({x:900 * Math.sin( 7 * 0.524 + Math.PI ), y:( 0 * 280 ) - 450, z:900 * Math.cos( 7 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto29 = document.createElement( 'img' );
 					foto29.src = "./Rulo-1/37.jpg" ;
 					foto29.className = 'element';
+					foto29gusta = "";
 					foto29.onclick = function () {
 					if (foto29.className === "element") {
 						foto29.className = "element2";
@@ -965,11 +1334,20 @@ var foto29 = document.createElement( 'img' );
 						objects[36].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
                         objects[36].position.y =  ( 1 * 280 ) - 450;
                         objects[36].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+						if (foto29gusta === "") {
+						    foto29gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto29gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[36]);	
+								favoritos.fotos.push(foto29);
+								favoritos.posicion.push({x:900 * Math.sin( 7 * 0.524 + Math.PI ), y:( 1 * 280 ) - 450, z:900 * Math.cos( 7 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto30 = document.createElement( 'img' );
 					foto30.src = "./Rulo-1/38.jpg" ;
 					foto30.className = 'element';
+					foto30gusta = "";
 					foto30.onclick = function () {
 					if (foto30.className === "element") {
 						foto30.className = "element2";
@@ -987,11 +1365,20 @@ var foto30 = document.createElement( 'img' );
 						objects[37].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
                         objects[37].position.y =  ( 2 * 280 ) - 450;
                         objects[37].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+						if (foto30gusta === "") {
+						    foto30gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto30gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[37]);	
+								favoritos.fotos.push(foto30);
+								favoritos.posicion.push({x:900 * Math.sin( 7 * 0.524 + Math.PI ), y:( 2 * 280 ) - 450, z:900 * Math.cos( 7 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 var foto31 = document.createElement( 'img' );
 					foto31.src = "./Rulo-1/39.jpg" ;					
 					foto31.className = 'element';
+					foto31gusta = "";
 					foto31.onclick = function () {
 					if (foto31.className === "element") {
 						foto31.className = "element2";
@@ -1009,11 +1396,20 @@ var foto31 = document.createElement( 'img' );
 						objects[38].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
                         objects[38].position.y =  ( 3 * 280 ) - 450;
                         objects[38].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+						if (foto31gusta === "") {
+						    foto31gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto31gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[38]);	
+								favoritos.fotos.push(foto31);
+								favoritos.posicion.push({x:900 * Math.sin( 7 * 0.524 + Math.PI ), y:( 3 * 280 ) - 450, z:900 * Math.cos( 7 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};	
 var foto415 = document.createElement( 'img' );
 					foto415.src = "./Rulo-1/40.jpg" ;
 					foto415.className = 'element';
+					foto415gusta = "";
 					foto415.onclick = function () {
 					if (foto415.className === "element") {
 						foto415.className = "element2";
@@ -1031,6 +1427,14 @@ var foto415 = document.createElement( 'img' );
 						objects[39].position.x = 900 * Math.sin( 7 * 0.524 + Math.PI );
                         objects[39].position.y =  ( 4 * 280 ) - 450;
                         objects[39].position.z = 900 * Math.cos( 7 * 0.524 + Math.PI );
+						if (foto415gusta === "") {
+						    foto415gusta = prompt("¿Te gusta este dibujo?", "¡ME ENCANTA!");
+							if (foto415gusta = "¡ME ENCANTA!") {
+								favoritos.objetos.push(objects[39]);	
+								favoritos.fotos.push(foto415);
+								favoritos.posicion.push({x:900 * Math.sin( 7 * 0.524 + Math.PI ), y:( 4 * 280 ) - 450, z:900 * Math.cos( 7 * 0.524 + Math.PI )});
+							}
+						}	
 					};				
 					};		
 
@@ -1064,9 +1468,8 @@ cartel.onclick = function () {
 						objects[10].position.x = 900 * Math.sin( 2 * 0.524 + Math.PI )*4;
                         objects[10].position.y =  ( 2 * 280 ) - 450;
                         objects[10].position.z = 900 * Math.cos( 2 * 0.524 + Math.PI )*4;
-
-
 					};					
+
 
 var foto414 = document.createElement( 'img' );
 					foto414.src = "Dibujos/Dibujos.jpg" ;
